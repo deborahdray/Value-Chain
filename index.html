@@ -3,9 +3,66 @@
     <head>
         <link rel="stylesheet" href="styles.css">
         <title>HR Value Chain Builder</title>
+        <head>
+            <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
+            <link rel="icon" type="image/png" sizes="192x192" href="favicon/web-app-manifest-192x192.png">
+            <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        </head>
     </head>
     <body>
-          <h1>Let's build an HR Value Chain</h1>  
-          
+        <div>
+            <h1>Let's build an HR Value Chain</h1>  
+            <p>The HR value chain transforms HR from an administrative function into a strategic driver of business success. By linking HR activities—like recruitment, training, and engagement—to measurable outcomes such as productivity, profitability, and customer satisfaction, it ensures that people investments deliver real financial and operational impact. This approach helps HR align with business priorities, providing data-driven insights that improve decision-making, optimise costs, and drive growth. Whether you’re in HR seeking strategic influence or a CFO focused on measurable returns, the HR value chain makes the business case for investing in people clear and compelling.</p>
+        </div>
+        <div>
+            <h2>Start building your Human Resources Value Chain:</h2>
+            <form id="companyInfo">
+                <label for="companyName">Company name:</label><br>
+                <input type="text" id="companyName" name="companyName" required><br><br>            
+
+                <label for="companyActivities">Could you describe the primary activities that drive value creation for your company? (Understanding your core value drivers will help tailor a value chain that best supports your business goals.)<br><br>
+                    For example, this might be things like:<br><br>
+                    •	Developing new products or services: (e.g., creating software, designing clothing, inventing new technologies)<br><br>
+                    •	Manufacturing products: (e.g., assembling cars, producing pharmaceuticals, processing food)<br><br>
+                    •	Delivering services: (e.g., providing consulting, offering healthcare, running retail stores)<br><br>
+                    •	Managing information: (e.g., conducting research, analysing data, providing financial services)<br><br>
+                    </label>
+                <textarea id="companyActivities" name="companyActivities" rows="5" required></textarea><br><br>
+                
+                <label for="objective">What is your business objective?<br><br>
+                    For example:<br><br>
+                    •	Revenue growth<br><br>
+                    •	Profit maximization<br><br>
+                    •	Market share expansion<br><br>
+                    •	Customer retention<br><br>
+                    •	Cost reduction<br><br>
+                    •	Operational efficiency<br><br>
+                    •	Product innovation<br><br>
+                    •	Brand awareness<br><br>
+                    •	Employee satisfaction<br><br>
+                    •	Sustainability<br><br>
+
+                </label>
+                <input type="text" id="objective" name="objective" required><br><br>
+
+                <button type="submit">Submit</button>
+                <p id="summary"></p>
+
+                <script>
+                function displayText() {
+                    event.preventDefault();  //prevent the default form submission
+                    const companyName = document.getElementById('companyName').value; 
+                    const companyActivities = document.getElementById('companyActivities').value; 
+                    const objective = document.getElementById('objective').value; 
+
+                    const displayArea = document.getElementById('summary');
+                    displayArea.textContent = `${companyName} drives value through ${companyActivities}. The organisational objective is: ${objective}.`;
+                }
+                // Add an event listener to the form
+                const form = document.getElementById('companyInfo');
+                form.addEventListener('submit', displayText); 
+                </script>
+            </form>
+        </div>
     </body>
 </html>
